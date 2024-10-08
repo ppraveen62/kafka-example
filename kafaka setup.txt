@@ -1,0 +1,34 @@
+kafaka
+offset explorer
+
+zookeeper start
+
+C:\kafka>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+kafka server start
+
+C:\kafka>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+create topic
+
+C:\kafka>.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic test-topic1 --partitions 3 --replication-factor 1
+
+C:\kafka>.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic test-topic2
+
+list of topics
+
+C:\kafka>.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+describe topics
+
+C:\kafka>.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --describe
+
+describe particular topic
+
+C:\kafka>.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic test-topic1
+
+starting producer and consumer 
+
+C:\kafka>.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic1
+
+C:\kafka>.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic1 --from-beginning
